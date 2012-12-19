@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+        xmlns:admin="http://webns.net/mvcb/"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+        <channel>
+          <title><%= title %></title>
+          <link><%- link %></link>
+          <dc:language>ja</dc:language>
+          <dc:date><%= data[0].date %></dc:date>
+
+          <% for (var i = 0; i < data.length; i++) { %>
+          <item>
+            <title><%= data[i].title %></title>
+            <link>http://himekyun.jp</link>
+                <description><%= data[i].title %></description>
+                <dc:date><%= data[i].date %></dc:date>
+          </item>
+          <% } %>
+        </channel>
+</rss>

@@ -5,7 +5,8 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
+, hime = require('./routes/hime')
+, nano = require('./routes/nano')
   , http = require('http')
   , path = require('path');
 
@@ -30,8 +31,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/hime', hime.rss);
+app.get('/nano', nano.rss);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
+var port = process.env.PORT || 3000;
+app.listen(port);
