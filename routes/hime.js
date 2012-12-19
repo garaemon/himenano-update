@@ -18,7 +18,7 @@ exports.rss = function(req, res) {
                     var dd = date.match(/（[\d][\d][\d][\d]\/[\d][\d]\/([\d][\d])/)[1];
                     data.push({
                         title: title,
-                        date: yyyy + "-" + mm + "-" + dd + "T00:00:00+09:00"m
+                        date: yyyy + "-" + mm + "-" + dd + "T00:00:00+09:00"
                     });
                 }
             });
