@@ -1,0 +1,15 @@
+{
+    "name": "himenano-update",
+    "version": "0.0.1",
+    "private": true,
+    "engines": {
+        "node": "0.8.14",
+        "npm": "1.x"
+    },
+    "dependencies": {
+        "express": "3.0.4"
+        , "ejs": "*"
+        , "request": "2.12.0"
+        , "cheerio": "0.10.1"
+    }
+}
