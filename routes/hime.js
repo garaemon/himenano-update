@@ -12,13 +12,20 @@ exports.rss = function(req, res) {
                 // date format is (yyyy/mm/dd)
                 console.log("title: " + date);
                 console.log("date: " + date);
+                
+                
                 if (date.match(/（[\d][\d][\d][\d]\/[\d][\d]\/[\d][\d]）/)) {
-                    var yyyy = date.match(/（([\d][\d][\d][\d])/)[1];
-                    var mm = date.match(/（[\d][\d][\d][\d]\/([\d][\d])/)[1];
-                    var dd = date.match(/（[\d][\d][\d][\d]\/[\d][\d]\/([\d][\d])/)[1];
+                    var date_obj = new Date();
+                    var yyyy = parseInt(date.match(/（([\d][\d][\d][\d])/)[1], 10);
+                    var mm = parseInt(date.match(/（[\d][\d][\d][\d]\/([\d][\d])/)[1], 10);
+                    var dd = parseInt(date.match(/（[\d][\d][\d][\d]\/[\d][\d]\/([\d][\d])/)[1], 10);
+                    date_obj.setFullYear(yyyy);
+                    date_obj.setMonth(mm - 1);
+                    date_obj.setDate(dd);
+                    date_obj.setTime(date_obj.getTime() - 9 * 60 * 60 * 1000);
                     data.push({
                         title: title,
-                        date: yyyy + "-" + mm + "-" + dd + "T00:00:00+09:00"
+                        date: date_obj.toString()
                     });
                 }
             });
