@@ -9,10 +9,18 @@ exports.rss = function(req, res) {
             $html.find(".px1").each(function() {
                 var title = $(this).text();
                 var date = $(this).next().text();
-                data.push({
-                    title: title,
-                    date: date
-                });
+                // date format is (yyyy/mm/dd)
+                console.log("title: " + date);
+                console.log("date: " + date);
+                if (date.match(/（[\d][\d][\d][\d]\/[\d][\d]\/[\d][\d]）/)) {
+                    var yyyy = date.match(/（([\d][\d][\d][\d])/)[1];
+                    var mm = date.match(/（[\d][\d][\d][\d]\/([\d][\d])/)[1];
+                    var dd = date.match(/（[\d][\d][\d][\d]\/[\d][\d]\/([\d][\d])/)[1];
+                    data.push({
+                        title: title,
+                        date: yyyy + "-" + mm + "-" + dd + "T00:00:00+09:00"m
+                    });
+                }
             });
             res.contentType("xml");
             res.render("rss", {
